@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthGuard.Infrastructure", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthGuard.Domain", "src\AuthGuard.Domain\AuthGuard.Domain.csproj", "{20D4A386-43FF-4D86-B76F-C8E9E9DC5BA4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthGuard.EntityFrameworkCore", "src\AuthGuard.EntityFrameworkCore\AuthGuard.EntityFrameworkCore.csproj", "{4990AD47-735A-4CF1-9DEB-DD12678CF80C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{20D4A386-43FF-4D86-B76F-C8E9E9DC5BA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20D4A386-43FF-4D86-B76F-C8E9E9DC5BA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20D4A386-43FF-4D86-B76F-C8E9E9DC5BA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4990AD47-735A-4CF1-9DEB-DD12678CF80C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4990AD47-735A-4CF1-9DEB-DD12678CF80C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4990AD47-735A-4CF1-9DEB-DD12678CF80C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4990AD47-735A-4CF1-9DEB-DD12678CF80C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{66F028E8-0F43-4DCF-A344-B48C6AA66D19} = {FBA3A7FB-3B30-4B04-BECC-3DB2D2D62F42}
 		{116DAFF8-3FA6-4B05-BEFC-3C88788F8C68} = {FBA3A7FB-3B30-4B04-BECC-3DB2D2D62F42}
 		{20D4A386-43FF-4D86-B76F-C8E9E9DC5BA4} = {FBA3A7FB-3B30-4B04-BECC-3DB2D2D62F42}
+		{4990AD47-735A-4CF1-9DEB-DD12678CF80C} = {FBA3A7FB-3B30-4B04-BECC-3DB2D2D62F42}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4F57B424-D17D-4495-81A5-1D9C62A0CCE4}
