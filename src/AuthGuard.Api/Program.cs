@@ -1,5 +1,6 @@
 using EasyWeb.AspNetCore.ApiStandarts;
 using EasyWeb.AspNetCore.Filters;
+using EasyWeb.AspNetCore.Swagger;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +16,15 @@ builder.Services.AddAuthentication("Bearer")
         options.Authority = builder.Configuration.GetValue<string>("IdentityServerOptions:Authority");
     });
 
+builder.Services.ConfigureSwagger(options =>
+{
+    options.Title = "Employee Service";
+    options.Description = "Auth Guard Employee Service";
+});
+
 var app = builder.Build();
+
+app.ApplySwaggerConfiguration();
 
 app.UseHttpsRedirection();
 
