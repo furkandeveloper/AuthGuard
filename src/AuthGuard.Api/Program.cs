@@ -1,8 +1,10 @@
 using EasyWeb.AspNetCore.ApiStandarts;
+using EasyWeb.AspNetCore.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllersWithViews()
+    .AddEasyWebCore();
 
 builder.Services.ConfigureWebApiStandarts();
 
