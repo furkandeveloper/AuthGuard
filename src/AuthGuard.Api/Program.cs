@@ -1,6 +1,10 @@
+using EasyWeb.AspNetCore.ApiStandarts;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+
+builder.Services.ConfigureWebApiStandarts();
 
 builder.Services.AddAuthentication("Bearer")
     .AddIdentityServerAuthentication("Bearer", options =>
