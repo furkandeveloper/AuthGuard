@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EasyWeb.AspNetCore" Version="1.0.2" />
+    <PackageReference Include="EasyWeb.AspNetCore.Filters" Version="1.0.2" />
+    <PackageReference Include="EasyWeb.AspNetCore.Standarts" Version="1.0.2" />
+    <PackageReference Include="EasyWeb.AspNetCore.Swagger" Version="1.0.2" />
+    <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
+  </ItemGroup>
+
+</Project>
