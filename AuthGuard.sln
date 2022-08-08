@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FBA3A7FB-3B30-4B04-BECC-3DB2D2D62F42}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{8B5CA6E7-B618-42E4-A4F0-BF103F5BA214}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthGuard.IdentityServer4", "src\AuthGuard.IdentityServer4\AuthGuard.IdentityServer4.csproj", "{2842BDAC-F86D-45A4-88A0-B456CEF6079E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2842BDAC-F86D-45A4-88A0-B456CEF6079E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2842BDAC-F86D-45A4-88A0-B456CEF6079E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2842BDAC-F86D-45A4-88A0-B456CEF6079E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2842BDAC-F86D-45A4-88A0-B456CEF6079E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2842BDAC-F86D-45A4-88A0-B456CEF6079E} = {FBA3A7FB-3B30-4B04-BECC-3DB2D2D62F42}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4F57B424-D17D-4495-81A5-1D9C62A0CCE4}
+	EndGlobalSection
+EndGlobal
