@@ -9,7 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{8B5CA6E7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthGuard.IdentityServer4", "src\AuthGuard.IdentityServer4\AuthGuard.IdentityServer4.csproj", "{2842BDAC-F86D-45A4-88A0-B456CEF6079E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthGuard.Api", "src\AuthGuard.Api\AuthGuard.Api.csproj", "{66F028E8-0F43-4DCF-A344-B48C6AA66D19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthGuard.Api", "src\AuthGuard.Api\AuthGuard.Api.csproj", "{66F028E8-0F43-4DCF-A344-B48C6AA66D19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthGuard.Infrastructure", "src\AuthGuard.Infrastructure\AuthGuard.Infrastructure.csproj", "{116DAFF8-3FA6-4B05-BEFC-3C88788F8C68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{66F028E8-0F43-4DCF-A344-B48C6AA66D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66F028E8-0F43-4DCF-A344-B48C6AA66D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66F028E8-0F43-4DCF-A344-B48C6AA66D19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{116DAFF8-3FA6-4B05-BEFC-3C88788F8C68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{116DAFF8-3FA6-4B05-BEFC-3C88788F8C68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{116DAFF8-3FA6-4B05-BEFC-3C88788F8C68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{116DAFF8-3FA6-4B05-BEFC-3C88788F8C68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2842BDAC-F86D-45A4-88A0-B456CEF6079E} = {FBA3A7FB-3B30-4B04-BECC-3DB2D2D62F42}
 		{66F028E8-0F43-4DCF-A344-B48C6AA66D19} = {FBA3A7FB-3B30-4B04-BECC-3DB2D2D62F42}
+		{116DAFF8-3FA6-4B05-BEFC-3C88788F8C68} = {FBA3A7FB-3B30-4B04-BECC-3DB2D2D62F42}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4F57B424-D17D-4495-81A5-1D9C62A0CCE4}
