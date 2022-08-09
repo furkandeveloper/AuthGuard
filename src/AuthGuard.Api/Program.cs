@@ -1,6 +1,10 @@
+using AuthGuard.Application;
+using AuthGuard.EntityFrameworkCore;
+using AuthGuard.Infrastructure.Repository;
 using EasyWeb.AspNetCore.ApiStandarts;
 using EasyWeb.AspNetCore.Filters;
 using EasyWeb.AspNetCore.Swagger;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +12,23 @@ builder.Services.AddControllersWithViews()
     .AddEasyWebCore();
 
 builder.Services.ConfigureWebApiStandarts();
+
+builder.Services.AddDbContext<AuthGuardDbContext>(options =>
+{
+    options.UseNpgsql(builder.Configuration.GetConnectionString("Default"));
+});
+
+#region Object Mapping
+builder.Services.AddAutoMapper((sp, cfg) =>
+{
+    cfg.ConstructServicesUsing(sp.GetService);
+}, AppDomain.CurrentDomain.GetAssemblies());
+
+#endregion
+
+builder.Services.AddApplicationServices();
+
+builder.Services.ApplyRepository<AuthGuardDbContext>();
 
 builder.Services.AddAuthentication("Bearer")
     .AddIdentityServerAuthentication("Bearer", options =>
