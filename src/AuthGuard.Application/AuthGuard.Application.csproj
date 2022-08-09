@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AuthGuard.Domain\AuthGuard.Domain.csproj" />
-    <ProjectReference Include="..\AuthGuard.Infrastructure\AuthGuard.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
