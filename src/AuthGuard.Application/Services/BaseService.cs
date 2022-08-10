@@ -4,7 +4,7 @@ namespace AuthGuard.Application.Services;
 
 public abstract class BaseService
 {
-    private IUnitOfWork UnitOfWork { get; }
+    protected internal IUnitOfWork UnitOfWork { get; }
 
     protected BaseService(IUnitOfWork unitOfWork)
     {

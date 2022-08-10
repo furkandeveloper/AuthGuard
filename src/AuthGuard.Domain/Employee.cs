@@ -1,4 +1,5 @@
-﻿using EasyRepository.EFCore.Abstractions;
+﻿using AuthGuard.Infrastructure.Exceptions.Core.BadRequestExceptions;
+using EasyRepository.EFCore.Abstractions;
 
 namespace AuthGuard.Domain
 {
@@ -8,6 +9,10 @@ namespace AuthGuard.Domain
     [Serializable]
     public class Employee : EasyBaseEntity<Guid>
     {
+        public Employee()
+        {
+            throw new NotConfiguredException();
+        }
         public Employee(string firstName, string lastName, int age)
         {
             ArgumentNullException.ThrowIfNull(firstName);
