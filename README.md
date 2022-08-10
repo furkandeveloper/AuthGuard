@@ -53,5 +53,13 @@ Visit for [Use-Case Docs](https://github.com/furkandeveloper/AuthGuard/blob/mast
 
 [Click](https://github.com/furkandeveloper/AuthGuard/pulls?q=is%3Apr+is%3Aclosed) to follow Git usage.
 
+****
+
+**Note**
+
+Install the [ModHeader](https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj) plugin in your browser so you can test it on Swagger. Configure as below.
+
+![resim](https://user-images.githubusercontent.com/47147484/183923235-f7194fa6-899e-42af-a314-d2f158c6104e.png)
+
 
 
