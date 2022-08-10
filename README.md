@@ -37,6 +37,7 @@ There will be references to technologies, dependencies, design patterns, pattern
 - Generic Repository Pattern
 - Unit of Work Desing Pattern
 - AAA Pattern
+- Specification Pattern
 
 ****
 
