@@ -5,6 +5,7 @@ using AuthGuard.Infrastructure.Exceptions.Core.BadRequestExceptions;
 using AutoMapper;
 using EasyCache.Core.Abstractions;
 using EasyCache.Core.Extensions;
+using EasyRepository.EFCore.Ardalis.Specification;
 using EasyRepository.EFCore.Generic;
 
 namespace AuthGuard.Application.Services.Concrete;
@@ -77,9 +78,10 @@ public class EmployeeApplicationService : BaseService, IEmployeeApplicationServi
     }
     private EmployeeResponseDto GetById(Guid id)
     {
-        var entity =
-            UnitOfWork.Repository.GetSingle<Employee>(asNoTracking: true,
-                whereExpression: a => a.Id == id)
+        var queryable = UnitOfWork.Repository.GetQueryable<Employee>().Where(a=>a.Id == id);
+        var spec = new EmployeeActiveSpecification();
+        queryable = SpecificationConverter.Convert(queryable, spec);
+        var entity = queryable.FirstOrDefault()
             ?? throw new EntityNotFoundException(nameof(Employee), instance: id.ToString());
         return _mapper.Map<EmployeeResponseDto>(entity);
     }
