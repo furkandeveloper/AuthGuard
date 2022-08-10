@@ -4,12 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AuthGuard.EntityFrameworkCore;
 
+/// <summary>
+/// Auth Guard Db Context
+/// </summary>
 public class AuthGuardDbContext : DbContext
 {
-    public AuthGuardDbContext()
-    {
-    }
-
     public AuthGuardDbContext(DbContextOptions<AuthGuardDbContext> options)
         : base(options)
     {
@@ -20,11 +19,6 @@ public class AuthGuardDbContext : DbContext
     public virtual DbSet<Employee> Employees { get; set; }
 
     #endregion
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        base.OnConfiguring(optionsBuilder);
-    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -3,19 +3,38 @@ using AuthGuard.Application;
 using AuthGuard.EntityFrameworkCore;
 using AuthGuard.Infrastructure.Exceptions;
 using AuthGuard.Infrastructure.Repository;
+using EasyCache.Memory.Extensions;
 using EasyWeb.AspNetCore.ApiStandarts;
 using EasyWeb.AspNetCore.Filters;
 using EasyWeb.AspNetCore.Swagger;
+using FluentValidation.AspNetCore;
 using MarkdownDocumenting.Extensions;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using System.Reflection;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews()
+     .AddJsonOptions(options =>
+     {
+         options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+     })
+    .AddNewtonsoftJson(options =>
+    {
+        options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+        options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+        options.SerializerSettings.Converters.Add(new StringEnumConverter());
+        JsonConvert.DefaultSettings = () => options.SerializerSettings;
+    })
+    .AddFluentValidation(options => options.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly()))
     .AddEasyWebCore();
 
 builder.Services.ConfigureWebApiStandarts();
@@ -24,6 +43,8 @@ builder.Services.AddDbContext<AuthGuardDbContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("Default"));
 });
+
+builder.Services.AddEasyMemoryCache();
 
 #region Object Mapping
 builder.Services.AddAutoMapper((sp, cfg) =>

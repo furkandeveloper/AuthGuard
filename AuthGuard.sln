@@ -11,13 +11,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthGuard.IdentityServer4",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthGuard.Api", "src\AuthGuard.Api\AuthGuard.Api.csproj", "{66F028E8-0F43-4DCF-A344-B48C6AA66D19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthGuard.Infrastructure", "src\AuthGuard.Infrastructure\AuthGuard.Infrastructure.csproj", "{116DAFF8-3FA6-4B05-BEFC-3C88788F8C68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthGuard.Infrastructure", "src\AuthGuard.Infrastructure\AuthGuard.Infrastructure.csproj", "{116DAFF8-3FA6-4B05-BEFC-3C88788F8C68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthGuard.Domain", "src\AuthGuard.Domain\AuthGuard.Domain.csproj", "{20D4A386-43FF-4D86-B76F-C8E9E9DC5BA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthGuard.Domain", "src\AuthGuard.Domain\AuthGuard.Domain.csproj", "{20D4A386-43FF-4D86-B76F-C8E9E9DC5BA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthGuard.EntityFrameworkCore", "src\AuthGuard.EntityFrameworkCore\AuthGuard.EntityFrameworkCore.csproj", "{4990AD47-735A-4CF1-9DEB-DD12678CF80C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthGuard.EntityFrameworkCore", "src\AuthGuard.EntityFrameworkCore\AuthGuard.EntityFrameworkCore.csproj", "{4990AD47-735A-4CF1-9DEB-DD12678CF80C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthGuard.Application", "src\AuthGuard.Application\AuthGuard.Application.csproj", "{3AA810C7-5923-46B9-9E8B-893C95376A64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthGuard.Application", "src\AuthGuard.Application\AuthGuard.Application.csproj", "{3AA810C7-5923-46B9-9E8B-893C95376A64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthGuard.Unit", "tests\AuthGuard.Unit\AuthGuard.Unit.csproj", "{D38CD363-EB57-4B99-ABB8-B690595BFA34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{3AA810C7-5923-46B9-9E8B-893C95376A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AA810C7-5923-46B9-9E8B-893C95376A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AA810C7-5923-46B9-9E8B-893C95376A64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D38CD363-EB57-4B99-ABB8-B690595BFA34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D38CD363-EB57-4B99-ABB8-B690595BFA34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D38CD363-EB57-4B99-ABB8-B690595BFA34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D38CD363-EB57-4B99-ABB8-B690595BFA34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{20D4A386-43FF-4D86-B76F-C8E9E9DC5BA4} = {FBA3A7FB-3B30-4B04-BECC-3DB2D2D62F42}
 		{4990AD47-735A-4CF1-9DEB-DD12678CF80C} = {FBA3A7FB-3B30-4B04-BECC-3DB2D2D62F42}
 		{3AA810C7-5923-46B9-9E8B-893C95376A64} = {FBA3A7FB-3B30-4B04-BECC-3DB2D2D62F42}
+		{D38CD363-EB57-4B99-ABB8-B690595BFA34} = {8B5CA6E7-B618-42E4-A4F0-BF103F5BA214}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4F57B424-D17D-4495-81A5-1D9C62A0CCE4}

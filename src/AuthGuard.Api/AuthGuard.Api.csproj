@@ -4,17 +4,24 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>0cfa9073-bc42-4d4e-a8d2-2abf7c6c1b88</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>..\..</DockerfileContext>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+		<PackageReference Include="EasyCache.Memory" Version="1.0.1" />
 		<PackageReference Include="EasyWeb.AspNetCore" Version="1.0.2" />
 		<PackageReference Include="EasyWeb.AspNetCore.Filters" Version="1.0.2" />
 		<PackageReference Include="EasyWeb.AspNetCore.Standarts" Version="1.0.2" />
 		<PackageReference Include="EasyWeb.AspNetCore.Swagger" Version="1.0.2" />
 		<PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
 		<PackageReference Include="Swashbuckle.AspNetCore.ReDoc" Version="6.4.0" />
 		<PackageReference Include="AspNetCore.MarkdownDocumenting" Version="2.3.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.7" />
+		<PackageReference Include="FluentValidation.AspNetCore" Version="11.1.2" />
 	</ItemGroup>
 
 	<ItemGroup>
