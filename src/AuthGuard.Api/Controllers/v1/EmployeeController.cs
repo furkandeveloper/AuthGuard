@@ -36,5 +36,21 @@ namespace AuthGuard.Api.Controllers.v1
                 { "TotalCount",await employeeApplicationService.CountAsync() }
             });
         }
+
+        /// <summary>
+        /// Insert Employee
+        /// </summary>
+        /// <param name="model">
+        /// Employee Request Data Transfer Object. <see cref="EmployeeRequestDto"/>
+        /// </param>
+        /// <returns>
+        /// Employe Response Data Transfer Object. <see cref="EmployeeResponseDto"/>
+        /// </returns>
+        [HttpPost(Name = "Insert")]
+        [ProducesResponseType(typeof(EmployeeResponseDto), 200)]
+        public async Task<IActionResult> InsertAsync([FromBody] EmployeeRequestDto model)
+        {
+            return Ok(await employeeApplicationService.AddAsync(model));
+        }
     }
 }
