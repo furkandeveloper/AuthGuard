@@ -108,5 +108,72 @@ namespace AuthGuard.Unit.Controllers.v1
             // Assert
             await action.Should().ThrowAsync<NullReferenceException>();
         }
+
+        [Theory,AutoMoqData]
+        public async Task Insert_Employee_Return_Ok_Object_Result(Mock<IEmployeeApplicationService> service, EmployeeRequestDto actual, EmployeeResponseDto expected)
+        {
+            // Arrange
+
+            var sut = new EmployeeController(service.Object);
+            service.Setup(setup => setup.AddAsync(actual)).ReturnsAsync(expected);
+
+            // Act
+
+            var result = await sut.InsertAsync(actual);
+
+            // Assert
+            Assert.IsType<OkObjectResult>(result);
+        }
+
+        [Theory, AutoMoqData]
+        public async Task Insert_Employee_Return_Employee_Response(Mock<IEmployeeApplicationService> service, EmployeeRequestDto actual, EmployeeResponseDto expected)
+        {
+            // Arrange
+
+            var sut = new EmployeeController(service.Object);
+            service.Setup(setup => setup.AddAsync(actual)).ReturnsAsync(expected);
+
+            // Act
+
+            var result = await sut.InsertAsync(actual);
+
+            // Assert
+            var apiOkResult = result.Should().BeOfType<OkObjectResult>().Subject;
+            var model = Assert.IsType<ApiResult>(apiOkResult.Value);
+            var response = model.Data;
+            Assert.IsType<EmployeeResponseDto>(response);
+        }
+
+        [Theory, AutoMoqData]
+        public async Task Insert_Employee_Not_Throw(Mock<IEmployeeApplicationService> service, EmployeeRequestDto actual, EmployeeResponseDto expected)
+        {
+            // Arrange
+
+            var sut = new EmployeeController(service.Object);
+            service.Setup(setup => setup.AddAsync(actual)).ReturnsAsync(expected);
+
+            // Act
+
+            var action = async () => { await sut.InsertAsync(actual); };
+
+            // Assert
+            await action.Should().NotThrowAsync<Exception>();
+        }
+
+        [Theory, AutoMoqData]
+        public async Task Insert_Employee_Throw(Mock<IEmployeeApplicationService> service, EmployeeRequestDto actual, EmployeeResponseDto expected)
+        {
+            // Arrange
+
+            var sut = new EmployeeController(null);
+            service.Setup(setup => setup.AddAsync(actual)).ReturnsAsync(expected);
+
+            // Act
+
+            var action = async () => { await sut.InsertAsync(actual); };
+
+            // Assert
+            await action.Should().ThrowAsync<NullReferenceException>();
+        }
     }
 }
