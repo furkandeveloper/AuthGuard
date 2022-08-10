@@ -1,10 +1,12 @@
 using AuthGuard.Api.Helpers;
 using AuthGuard.Application;
 using AuthGuard.EntityFrameworkCore;
+using AuthGuard.Infrastructure.Exceptions;
 using AuthGuard.Infrastructure.Repository;
 using EasyWeb.AspNetCore.ApiStandarts;
 using EasyWeb.AspNetCore.Filters;
 using EasyWeb.AspNetCore.Swagger;
+using MarkdownDocumenting.Extensions;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -79,7 +81,21 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+builder.Services.AddDocumentation();
+
 var app = builder.Build();
+
+app.UseEasyExceptionHandler();
+
+app.UseDocumentation(config =>
+{
+    config.HighlightJsStyle =
+        "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css";
+    config.GetMdlStyle = "https://code.getmdl.io/1.1.3/material.teal-orange.min.css";
+    config.RootPathHandling = HandlingType.Redirect;
+    config
+        .AddCustomLink(new MarkdownDocumenting.Elements.CustomLink("Swagger", "/api-docs"));
+});
 
 app.UseSwagger();
 
