@@ -52,5 +52,24 @@ namespace AuthGuard.Api.Controllers.v1
         {
             return Ok(await employeeApplicationService.AddAsync(model));
         }
+
+        /// <summary>
+        /// Update Employee
+        /// </summary>
+        /// <param name="id">
+        /// PK of Employee
+        /// </param>
+        /// <param name="model">
+        /// Employee Request Data Transfer Object. <see cref="EmployeeRequestDto"/>
+        /// </param>
+        /// <returns>
+        /// Employe Response Data Transfer Object. <see cref="EmployeeResponseDto"/>
+        /// </returns>
+        [HttpPut("{id}", Name = "Update")]
+        [ProducesResponseType(typeof(EmployeeResponseDto), 200)]
+        public async Task<IActionResult> UpdateAsync([FromRoute] Guid id, [FromBody] EmployeeRequestDto model)
+        {
+            return Ok(await employeeApplicationService.UpdateAsync(id, model));
+        }
     }
 }
