@@ -48,9 +48,6 @@
 	  <None Update="Docs\Developers\CodeStyles.md">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Docs\Developers\CONTRIBUTING.md">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
 	  <None Update="Docs\Developers\NamingRules.md">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
