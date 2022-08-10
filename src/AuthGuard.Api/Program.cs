@@ -6,6 +6,7 @@ using AuthGuard.Infrastructure.Repository;
 using EasyWeb.AspNetCore.ApiStandarts;
 using EasyWeb.AspNetCore.Filters;
 using EasyWeb.AspNetCore.Swagger;
+using FluentValidation.AspNetCore;
 using MarkdownDocumenting.Extensions;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
@@ -32,6 +33,7 @@ builder.Services.AddControllersWithViews()
         options.SerializerSettings.Converters.Add(new StringEnumConverter());
         JsonConvert.DefaultSettings = () => options.SerializerSettings;
     })
+    .AddFluentValidation(options => options.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly()))
     .AddEasyWebCore();
 
 builder.Services.ConfigureWebApiStandarts();
