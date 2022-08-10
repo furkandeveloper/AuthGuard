@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EasyRepository.EFCore.Generic;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,10 @@ namespace AuthGuard.Infrastructure.Repository
 {
     public static class Program
     {
-        public static void ApplyRepository<TDbContext>(this IServiceCollection services, ServiceLifetime lifetime = ServiceLifetime.Transient)
+        public static void ApplyGenericRepositoryPattern<TDbContext>(this IServiceCollection services, ServiceLifetime lifetime = ServiceLifetime.Transient)
             where TDbContext : DbContext
         {
-            services.ApplyRepository<TDbContext>(lifetime);
+            services.ApplyEasyRepository<TDbContext>(lifetime);
         }
     }
 }
