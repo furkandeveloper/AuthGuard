@@ -1,5 +1,11 @@
 # Auth Guard Service
 
+<p align="center">
+  <a href="https://gitmoji.carloscuesta.me">
+    <img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square" alt="Gitmoji">
+  </a> 
+</p>
+
 Welcome to Auth Guard documentation file.
 
 There will be references to technologies, dependencies, design patterns, patterns and related documents used in this document.
@@ -41,3 +47,10 @@ Visit for [Consumer Docs](https://github.com/furkandeveloper/AuthGuard/tree/mast
 Visit for [Build Docs](https://github.com/furkandeveloper/AuthGuard/blob/master/src/AuthGuard.Api/Docs/App/Build.md)
 
 Visit for [Use-Case Docs](https://github.com/furkandeveloper/AuthGuard/blob/master/src/AuthGuard.Api/Docs/App/UseCase.md)
+
+****
+
+[Click](https://github.com/furkandeveloper/AuthGuard/pulls?q=is%3Apr+is%3Aclosed) to follow Git usage.
+
+
+
