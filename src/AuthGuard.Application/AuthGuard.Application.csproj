@@ -13,6 +13,7 @@
     <PackageReference Include="AutoFilterer" Version="2.12.1" />
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="EasyCache.Memory" Version="1.0.1" />
   </ItemGroup>
 
 </Project>

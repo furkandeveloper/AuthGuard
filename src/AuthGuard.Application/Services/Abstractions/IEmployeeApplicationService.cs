@@ -13,4 +13,6 @@ public interface IEmployeeApplicationService
     Task<List<EmployeeResponseDto>> FilterAsync(EmployeeFilterDto dto);
 
     Task<int> CountAsync();
+
+    Task<EmployeeResponseDto> FindAsync(Guid id);
 }

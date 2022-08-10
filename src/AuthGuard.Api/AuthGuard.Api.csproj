@@ -8,6 +8,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+		<PackageReference Include="EasyCache.Memory" Version="1.0.1" />
 		<PackageReference Include="EasyWeb.AspNetCore" Version="1.0.2" />
 		<PackageReference Include="EasyWeb.AspNetCore.Filters" Version="1.0.2" />
 		<PackageReference Include="EasyWeb.AspNetCore.Standarts" Version="1.0.2" />

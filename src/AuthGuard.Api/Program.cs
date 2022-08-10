@@ -3,6 +3,7 @@ using AuthGuard.Application;
 using AuthGuard.EntityFrameworkCore;
 using AuthGuard.Infrastructure.Exceptions;
 using AuthGuard.Infrastructure.Repository;
+using EasyCache.Memory.Extensions;
 using EasyWeb.AspNetCore.ApiStandarts;
 using EasyWeb.AspNetCore.Filters;
 using EasyWeb.AspNetCore.Swagger;
@@ -42,6 +43,8 @@ builder.Services.AddDbContext<AuthGuardDbContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("Default"));
 });
+
+builder.Services.AddEasyMemoryCache();
 
 #region Object Mapping
 builder.Services.AddAutoMapper((sp, cfg) =>
