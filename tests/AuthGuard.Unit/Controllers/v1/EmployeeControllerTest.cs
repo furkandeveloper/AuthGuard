@@ -243,5 +243,54 @@ namespace AuthGuard.Unit.Controllers.v1
             // Assert
             await action.Should().ThrowAsync<NullReferenceException>();
         }
+
+        [Theory,AutoMoqData]
+        public async Task Delete_Employee_No_Content_Result(Mock<IEmployeeApplicationService> service, Guid actual, Task expected)
+        {
+            // Arrange
+            var sut = new EmployeeController(service.Object);
+
+            service.Setup(setup => setup.DeleteAsync(actual)).Returns(expected);
+
+            // Act
+
+            var result = await sut.DeleteAsync(actual);
+
+            // Assert
+
+            Assert.IsType<NoContentResult>(result);
+        }
+
+        [Theory, AutoMoqData]
+        public async Task Delete_Employee_Not_Throw(Mock<IEmployeeApplicationService> service, Guid actual, Task expected)
+        {
+            // Arrange
+            var sut = new EmployeeController(service.Object);
+
+            service.Setup(setup => setup.DeleteAsync(actual)).Returns(expected);
+
+            // Act
+
+            var action = async () => { await sut.DeleteAsync(actual); };
+
+            // Assert
+            await action.Should().NotThrowAsync<Exception>();
+        }
+
+        [Theory, AutoMoqData]
+        public async Task Delete_Employee_Throw(Mock<IEmployeeApplicationService> service, Guid actual, Task expected)
+        {
+            // Arrange
+            var sut = new EmployeeController(null);
+
+            service.Setup(setup => setup.DeleteAsync(actual)).Returns(expected);
+
+            // Act
+
+            var action = async () => { await sut.DeleteAsync(actual); };
+
+            // Assert
+            await action.Should().ThrowAsync<NullReferenceException>();
+        }
     }
 }
