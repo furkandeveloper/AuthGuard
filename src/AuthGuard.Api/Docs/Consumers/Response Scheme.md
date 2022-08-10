@@ -1,7 +1,7 @@
 ﻿# Response Scheme
 This API returns a standardized response objects for all situations. None of endpoint returns directly main object of result. All of responses are placed into **ApiResult** object.
 
-> **WARNING:** This scheme is used at `v2.1` or higher Api Versions.
+> **WARNING:** This scheme is used at `v1.0` or higher Api Versions.
 
 # Parameters of ApiResult
 
