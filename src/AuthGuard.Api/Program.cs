@@ -1,3 +1,4 @@
+using AuthGuard.Api.Helpers;
 using AuthGuard.Application;
 using AuthGuard.EntityFrameworkCore;
 using AuthGuard.Infrastructure.Repository;
@@ -5,6 +6,9 @@ using EasyWeb.AspNetCore.ApiStandarts;
 using EasyWeb.AspNetCore.Filters;
 using EasyWeb.AspNetCore.Swagger;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerUI;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,15 +41,63 @@ builder.Services.AddAuthentication("Bearer")
         options.Authority = builder.Configuration.GetValue<string>("IdentityServerOptions:Authority");
     });
 
-builder.Services.ConfigureSwagger(options =>
+builder.Services.AddSwaggerGen(c =>
 {
-    options.Title = "Employee Service";
-    options.Description = "Auth Guard Employee Service";
+    c.SwaggerDoc("1",
+        new OpenApiInfo
+        {
+            Title = "Auth Guard Service",
+            Version = "1",
+            Description = "v1 - Auth Guard Service"
+        });
+
+    var docFile = $"{Assembly.GetEntryAssembly()?.GetName().Name}.xml";
+    var filePath = Path.Combine(AppContext.BaseDirectory, docFile);
+
+    if (System.IO.File.Exists((filePath)))
+    {
+        c.IncludeXmlComments(filePath);
+    }
+
+    c.DescribeAllParametersInCamelCase();
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer",
+        BearerFormat = "Bearer",
+        In = ParameterLocation.Header,
+        Description = "Jwt Berarer token from Auth Guard"
+    });
+    c.DocumentFilter<LowercaseDocumentFilter>();
+    c.OperationFilter<AuthorizationOperationFilter>();
+    c.OperationFilter<DefaultValuesOperationFilter>();
 });
 
 var app = builder.Build();
 
-app.ApplySwaggerConfiguration();
+app.UseSwagger();
+
+app.UseReDoc(options =>
+{
+    options.SpecUrl = "/swagger/1/swagger.json";
+    options.RoutePrefix = "api-docs-redoc";
+});
+
+app.UseSwaggerUI(options =>
+{
+    options.EnableDeepLinking();
+    options.ShowExtensions();
+    options.DisplayRequestDuration();
+    options.DisplayOperationId();
+    options.DocExpansion(DocExpansion.None);
+    options.EnableFilter();
+    options.EnableValidator();
+    options.ShowCommonExtensions();
+    options.ShowExtensions();
+    options.RoutePrefix = "api-docs";
+    options.SwaggerEndpoint($"{builder.Configuration.GetValue<string>("BasePath")}/swagger/1/swagger.json", "V1");
+});
 
 app.UseHttpsRedirection();
 
