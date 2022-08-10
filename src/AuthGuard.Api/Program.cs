@@ -5,6 +5,7 @@ using AuthGuard.Infrastructure.Repository;
 using EasyWeb.AspNetCore.ApiStandarts;
 using EasyWeb.AspNetCore.Filters;
 using EasyWeb.AspNetCore.Swagger;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerUI;
@@ -32,7 +33,7 @@ builder.Services.AddAutoMapper((sp, cfg) =>
 
 builder.Services.AddApplicationServices();
 
-builder.Services.ApplyRepository<AuthGuardDbContext>();
+builder.Services.ApplyGenericRepositoryPattern<AuthGuardDbContext>();
 
 builder.Services.AddAuthentication("Bearer")
     .AddIdentityServerAuthentication("Bearer", options =>
@@ -41,26 +42,33 @@ builder.Services.AddAuthentication("Bearer")
         options.Authority = builder.Configuration.GetValue<string>("IdentityServerOptions:Authority");
     });
 
-builder.Services.AddSwaggerGen(c =>
+builder.Services.AddSwaggerGen(options =>
 {
-    c.SwaggerDoc("1",
-        new OpenApiInfo
-        {
-            Title = "Auth Guard Service",
-            Version = "1",
-            Description = "v1 - Auth Guard Service"
-        });
-
-    var docFile = $"{Assembly.GetEntryAssembly()?.GetName().Name}.xml";
-    var filePath = Path.Combine(AppContext.BaseDirectory, docFile);
-
-    if (System.IO.File.Exists((filePath)))
+    var provider = builder.Services.BuildServiceProvider().GetRequiredService<IApiVersionDescriptionProvider>();
+    foreach (var description in provider.ApiVersionDescriptions)
     {
-        c.IncludeXmlComments(filePath);
+        var title = "Auth Guard Service";
+        options.SwaggerDoc(description.GroupName, new OpenApiInfo()
+        {
+            Title = description.IsDeprecated ? title + "- [Deprecated]" : title,
+            Version = description.ApiVersion.ToString(),
+            Description = "RoofStack Auth Guard Service",
+            License = new OpenApiLicense
+            {
+                Name = "Apache 2.0",
+                Url = new Uri("http://www.apache.org/licenses/LICENSE-2.0.html"),
+            }
+        });
     }
 
-    c.DescribeAllParametersInCamelCase();
-    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    options.OperationFilter<DefaultValuesOperationFilter>();
+    options.OperationFilter<AuthorizationOperationFilter>();
+    options.OperationFilter<ContentTypeOperationFilter>();
+
+    options.DocumentFilter<CamelCaseDocumentFilter>();
+    options.DocumentFilter<BearerSecurityDocumentFilter>();
+
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Name = "Authorization",
         Type = SecuritySchemeType.ApiKey,
@@ -69,9 +77,6 @@ builder.Services.AddSwaggerGen(c =>
         In = ParameterLocation.Header,
         Description = "Jwt Berarer token from Auth Guard"
     });
-    c.DocumentFilter<LowercaseDocumentFilter>();
-    c.OperationFilter<AuthorizationOperationFilter>();
-    c.OperationFilter<DefaultValuesOperationFilter>();
 });
 
 var app = builder.Build();
@@ -83,6 +88,8 @@ app.UseReDoc(options =>
     options.SpecUrl = "/swagger/1/swagger.json";
     options.RoutePrefix = "api-docs-redoc";
 });
+
+var versioningProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
 
 app.UseSwaggerUI(options =>
 {
@@ -96,7 +103,9 @@ app.UseSwaggerUI(options =>
     options.ShowCommonExtensions();
     options.ShowExtensions();
     options.RoutePrefix = "api-docs";
-    options.SwaggerEndpoint($"{builder.Configuration.GetValue<string>("BasePath")}/swagger/1/swagger.json", "V1");
+    foreach (var description in versioningProvider.ApiVersionDescriptions)
+        options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
+
 });
 
 app.UseHttpsRedirection();
