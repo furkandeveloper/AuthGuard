@@ -71,5 +71,22 @@ namespace AuthGuard.Api.Controllers.v1
         {
             return Ok(await employeeApplicationService.UpdateAsync(id, model));
         }
+
+        /// <summary>
+        /// Delete Employee
+        /// </summary>
+        /// <param name="id">
+        /// PK of Employee
+        /// </param>
+        /// <returns>
+        /// No Content Result. <see cref="NoContentResult"/>
+        /// </returns>
+        [HttpDelete("{id}", Name = "Delete")]
+        [ProducesResponseType(204)]
+        public async Task<IActionResult> DeleteAsync([FromRoute] Guid id)
+        {
+            await employeeApplicationService.DeleteAsync(id);
+            return NoContent();
+        }
     }
 }
