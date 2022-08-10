@@ -88,5 +88,21 @@ namespace AuthGuard.Api.Controllers.v1
             await employeeApplicationService.DeleteAsync(id);
             return NoContent();
         }
+
+        /// <summary>
+        /// Find Employee
+        /// </summary>
+        /// <param name="id">
+        /// PK of Employee
+        /// </param>
+        /// <returns>
+        /// Employe Response Data Transfer Object. <see cref="EmployeeResponseDto"/>
+        /// </returns>
+        [HttpGet("{id}", Name = "Find")]
+        [ProducesResponseType(typeof(EmployeeResponseDto),200)]
+        public async Task<IActionResult> FindAsync([FromRoute] Guid id)
+        {
+            return Ok(await employeeApplicationService.FindAsync(id));
+        }
     }
 }
