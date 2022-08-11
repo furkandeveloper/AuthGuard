@@ -61,5 +61,8 @@ Install the [ModHeader](https://chrome.google.com/webstore/detail/modheader/idgp
 
 ![resim](https://user-images.githubusercontent.com/47147484/183923235-f7194fa6-899e-42af-a314-d2f158c6104e.png)
 
+![resim](https://user-images.githubusercontent.com/47147484/184094179-94a78a34-d94d-444f-bd7a-32c82a925120.png)
+
+
 
 
