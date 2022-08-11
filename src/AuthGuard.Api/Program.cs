@@ -115,14 +115,15 @@ app.UseDocumentation(config =>
     config.GetMdlStyle = "https://code.getmdl.io/1.1.3/material.teal-orange.min.css";
     config.RootPathHandling = HandlingType.Redirect;
     config
-        .AddCustomLink(new MarkdownDocumenting.Elements.CustomLink("Swagger", "/api-docs"));
+        .AddCustomLink(new MarkdownDocumenting.Elements.CustomLink("Swagger", "/api-docs"))
+        .AddCustomLink(new MarkdownDocumenting.Elements.CustomLink("ReDoc", "/api-docs-redoc"));
 });
 
 app.UseSwagger();
 
 app.UseReDoc(options =>
 {
-    options.SpecUrl = "/swagger/1/swagger.json";
+    options.SpecUrl = "/swagger/1.0/swagger.json";
     options.RoutePrefix = "api-docs-redoc";
 });
 
