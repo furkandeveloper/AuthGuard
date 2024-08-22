@@ -12,7 +12,7 @@ There will be references to technologies, dependencies, design patterns, pattern
 
 ## Used technologies
 
-- .Net 6
+- .Net 8
 - PostgreSQL
 - IdentityServer4
 - Memory Cache
