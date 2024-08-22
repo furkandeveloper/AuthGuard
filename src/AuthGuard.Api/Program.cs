@@ -6,7 +6,6 @@ using AuthGuard.Infrastructure.Repository;
 using EasyCache.Memory.Extensions;
 using EasyWeb.AspNetCore.ApiStandarts;
 using EasyWeb.AspNetCore.Filters;
-using EasyWeb.AspNetCore.Swagger;
 using FluentValidation.AspNetCore;
 using MarkdownDocumenting.Extensions;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;

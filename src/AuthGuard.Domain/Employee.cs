@@ -13,7 +13,8 @@ namespace AuthGuard.Domain
         {
             ArgumentNullException.ThrowIfNull(firstName);
             ArgumentNullException.ThrowIfNull(lastName);
-            ArgumentNullException.ThrowIfNull(age);
+            if (age < 0)
+                throw new ArgumentException(nameof(age));
             FirstName = firstName;
             LastName = lastName;
             Age = age;
@@ -21,8 +22,12 @@ namespace AuthGuard.Domain
 
         public void Update(string firstName, string lastName, int age)
         {
+            ArgumentNullException.ThrowIfNull(firstName);
+            ArgumentNullException.ThrowIfNull(lastName);
             FirstName = firstName;
             LastName = lastName;
+            if (age < 0)
+                throw new ArgumentException(nameof(age));
             Age = age;
         }
 
