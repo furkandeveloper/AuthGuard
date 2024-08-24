@@ -16,3 +16,4 @@ This document is created to guide naming convensions in this project.
 | Attribute | PascalCase | .Net Defaults |
 | Constant | UPPERCASE_UNDERSCORE | .Net Defaults |
 | Events | PascalCase | .Net Defaults |
+

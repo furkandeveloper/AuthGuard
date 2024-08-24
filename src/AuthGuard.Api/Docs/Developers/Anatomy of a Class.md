@@ -45,4 +45,4 @@ The following ordering applies to this project:
 
 # Summary
 
-StyleCrop rules are used in this project and this document was prepared according to [StyleCrop Rules Documentation](http://stylecop.soyuz5.com/Ordering%20Rules.html)
+StyleCrop rules are used in this project and this document was prepared according to  [StyleCrop Rules Documentation](http://stylecop.soyuz5.com/Ordering%20Rules.html)

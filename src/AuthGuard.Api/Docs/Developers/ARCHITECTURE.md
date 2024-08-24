@@ -62,7 +62,7 @@ This folder includes model validations. You mustn't use if for check any of prop
 | [FluentValidation.AspNetCore](https://github.com/FluentValidation/FluentValidation)                    | A popular .NET validation library for building strongly-typed validation rules.       | v11.0.1 |
 | [FluentValidation.DependencyInjectionExtensions](https://github.com/FluentValidation/FluentValidation) | A popular .NET validation library for building strongly-typed validation rules.       | v11.0.1 |
 | [Microsoft.AspNetCore.Mvc.NewtonsoftJson](https://github.com/dotnet/aspnetcore)                        | Newtonsoft for AspNetCore                                                             | v6.0.5  |
-| [AutoMapper](https://github.com/AutoMapper/AutoMapper)                                                 | A convention-based object-object mapper in .NET.                                      | v11.0.1 |
+| [AutoMapper](https://github.com/AutoMapper/AutoMapper)                                                 | A convention-based object-object mapper in .NET.                                      | v12.0.1 |
 
 
 

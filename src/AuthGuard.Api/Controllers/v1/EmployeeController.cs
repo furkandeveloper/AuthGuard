@@ -1,4 +1,5 @@
-﻿using AuthGuard.Application.Dtos;
+﻿using AuthGuard.Api.Helpers;
+using AuthGuard.Application.Dtos;
 using AuthGuard.Application.Services.Abstractions;
 using EasyWeb.AspNetCore.Controllers;
 using Microsoft.AspNetCore.Authorization;
@@ -29,6 +30,7 @@ namespace AuthGuard.Api.Controllers.v1
         /// </returns>
         [HttpGet(Name = "AdvancedFilter")]
         [ProducesResponseType(typeof(EmployeeResponseDto[]), 200)]
+        [PermissionCheck("employeeApi.read")]
         public async Task<IActionResult> AdvancedFilterAsync([FromQuery] EmployeeFilterDto model)
         {
             return Ok(await employeeApplicationService.FilterAsync(model), new Dictionary<string, int>
@@ -48,6 +50,7 @@ namespace AuthGuard.Api.Controllers.v1
         /// </returns>
         [HttpPost(Name = "Insert")]
         [ProducesResponseType(typeof(EmployeeResponseDto), 200)]
+        [PermissionCheck("employeeApi.create")]
         public async Task<IActionResult> InsertAsync([FromBody] EmployeeRequestDto model)
         {
             return Ok(await employeeApplicationService.AddAsync(model));
@@ -67,6 +70,7 @@ namespace AuthGuard.Api.Controllers.v1
         /// </returns>
         [HttpPut("{id}", Name = "Update")]
         [ProducesResponseType(typeof(EmployeeResponseDto), 200)]
+        [PermissionCheck("employeeApi.update")]
         public async Task<IActionResult> UpdateAsync([FromRoute] Guid id, [FromBody] EmployeeRequestDto model)
         {
             return Ok(await employeeApplicationService.UpdateAsync(id, model));
@@ -83,6 +87,7 @@ namespace AuthGuard.Api.Controllers.v1
         /// </returns>
         [HttpDelete("{id}", Name = "Delete")]
         [ProducesResponseType(204)]
+        [PermissionCheck("employeeApi.delete")]
         public async Task<IActionResult> DeleteAsync([FromRoute] Guid id)
         {
             await employeeApplicationService.DeleteAsync(id);
@@ -100,6 +105,7 @@ namespace AuthGuard.Api.Controllers.v1
         /// </returns>
         [HttpGet("{id}", Name = "Find")]
         [ProducesResponseType(typeof(EmployeeResponseDto),200)]
+        [PermissionCheck("employeeApi.read")]
         public async Task<IActionResult> FindAsync([FromRoute] Guid id)
         {
             return Ok(await employeeApplicationService.FindAsync(id));

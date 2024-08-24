@@ -18,6 +18,9 @@ client_id : employeeApi
 
 client_secret : ProCodeGuide
 
+**Note**
+If you want to produce a token with all the powers, you can leave the scope section blank.
+
 **Response**
 
 ```json

@@ -69,3 +69,5 @@ This API returns a standardized response objects for all situations. None of end
     "message" : "object reference not set to an instance of an object"
 }
 ```
+
+If you are not authorized you will get 403, if you are not logged in you will get 401.

@@ -773,10 +773,12 @@ void Method()
 // Prefer:
 public void M()
 {
+
 }
 
 // Over:
 public void M(int param)
 {
+
 }
 ```

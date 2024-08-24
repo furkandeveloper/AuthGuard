@@ -4,7 +4,6 @@ There are two services in the Auth Guard solution.
 
 Each service is dockerized. So you can build the project using the relevant dockerfiles.
 
-
 For the api project responsible for Employee Management operations, use the following command;
 
 ```
