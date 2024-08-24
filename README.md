@@ -64,5 +64,15 @@ Install the [ModHeader](https://chrome.google.com/webstore/detail/modheader/idgp
 ![resim](https://user-images.githubusercontent.com/47147484/184094179-94a78a34-d94d-444f-bd7a-32c82a925120.png)
 
 
+****
 
+## What, Why, Wherefore and How?
+
+It is difficult to predict the evaluation criteria while developing the project.
+
+For this reason, there are some additional developments for proving the knowledge in the project.
+
+For example, separation of Exception classes according to status code information or specification pattern.
+
+However, the main purpose is to prove the knowledge and apply best practices.
 
